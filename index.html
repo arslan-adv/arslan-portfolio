@@ -20,6 +20,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&display=swap">
 
   <link rel="stylesheet" href="css/style.css">
@@ -531,8 +532,8 @@
     <!-- ================= CONTACT ================= -->
     <section class="section section--tint" id="contact" aria-labelledby="contact-title">
       <div class="container">
-        <div class="contact-card reveal">
-          <div class="contact-card__main">
+        <div class="contact__grid">
+          <div class="contact-card reveal">
             <p class="eyebrow">Contact</p>
             <h2 class="section__title" id="contact-title">Let's connect</h2>
             <p class="contact-card__lead">
@@ -588,14 +589,42 @@
             </ul>
           </div>
 
-          <aside class="contact-card__aside" aria-label="Contact actions">
-            <p class="contact-card__aside-title">Prefer direct outreach?</p>
-            <p class="contact-card__aside-text">Email is the fastest way to reach me for professional inquiries.</p>
-            <a class="btn btn--primary btn--block" href="mailto:imarslan412@gmail.com">Send an email</a>
-            <a class="btn btn--ghost btn--block" href="https://www.linkedin.com/in/muhammad-arslan-tofique-ab9a98255/" target="_blank" rel="noopener noreferrer">
-              View LinkedIn profile
-            </a>
-          </aside>
+          <div class="contact-form-card reveal">
+            <h3 class="contact-form__title">Send a message</h3>
+            <p class="contact-form__sub">Fill in the form below and I'll get back to you.</p>
+
+            <form id="contact-form" class="contact-form" novalidate>
+              <div class="field">
+                <label for="cf-name">Your name</label>
+                <input id="cf-name" name="name" type="text" autocomplete="name" required maxlength="80">
+                <span class="field__error" id="cf-name-error"></span>
+              </div>
+              <div class="field">
+                <label for="cf-email">Email address</label>
+                <input id="cf-email" name="email" type="email" autocomplete="email" required maxlength="120">
+                <span class="field__error" id="cf-email-error"></span>
+              </div>
+              <div class="field">
+                <label for="cf-subject">Subject</label>
+                <input id="cf-subject" name="subject" type="text" required maxlength="120">
+                <span class="field__error" id="cf-subject-error"></span>
+              </div>
+              <div class="field">
+                <label for="cf-message">Message</label>
+                <textarea id="cf-message" name="message" rows="5" required maxlength="1000"></textarea>
+                <span class="field__error" id="cf-message-error"></span>
+              </div>
+
+              <div class="field hp-field" aria-hidden="true">
+                <label for="cf-company">Company</label>
+                <input id="cf-company" name="company" type="text" tabindex="-1" autocomplete="off">
+              </div>
+
+              <p class="form-status" id="cf-status" role="status" aria-live="polite"></p>
+
+              <button type="submit" class="btn btn--primary btn--block" id="cf-submit">Send Message</button>
+            </form>
+          </div>
         </div>
       </div>
     </section>
@@ -641,6 +670,10 @@
     </div>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js" defer></script>
+  <script src="js/config.js" defer></script>
+  <script src="js/visitor-tracking.js" defer></script>
+  <script src="js/contact-form.js" defer></script>
   <script src="js/main.js" defer></script>
 </body>
 </html>
